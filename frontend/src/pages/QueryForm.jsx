@@ -1,12 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
 import { FaUser, FaEnvelope, FaFileAlt, FaCommentDots } from "react-icons/fa";
+import SEO from "../components/SEO";
 
 const QueryForm = () => {
 
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     claimType: "",
     message: ""
   });
@@ -19,7 +21,10 @@ const QueryForm = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 flex items-center justify-center p-6">
-
+      <SEO
+        title="QueryForm"
+        description="Professional insurance claim consultancy services. Fast processing and expert guidance."
+      />
       <div className="w-full max-w-lg bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-10">
 
         {/* Heading */}
@@ -57,6 +62,17 @@ const QueryForm = () => {
             />
           </div>
 
+          <div className="relative">
+            <FaEnvelope className="absolute top-4 left-4 text-gray-300" />
+            <input
+              required
+              type="num"
+              placeholder="Contact number"
+              className="w-full bg-white/20 text-white placeholder-gray-200 border border-white/30 pl-12 p-3 rounded-xl focus:ring-2 focus:ring-cyan-400 outline-none"
+              onChange={(e)=>setForm({...form,phone:e.target.value})}
+            />
+          </div>
+
           {/* Claim Type */}
           <div className="relative">
             <FaFileAlt className="absolute top-4 left-4 text-gray-300" />
@@ -67,11 +83,15 @@ const QueryForm = () => {
             >
               <option className="text-black" value="">Select Claim Type</option>
               <option className="text-black">Health Insurance</option>
+              <option className="text-black">Life Insurance claim</option>
               <option className="text-black">Accident Claim</option>
               <option className="text-black">Motor Claim</option>
               <option className="text-black">Travel Claim</option>
               <option className="text-black">Fire Claim</option>
-              <option className="text-black">Marine Claim</option>
+              <option className="text-black">Banking Claim</option>
+              <option className="text-black">Machinery Claim</option>
+              <option className="text-black">Postal scheme Claim</option>
+              <option className="text-black">Burglary Claim</option>
             </select>
           </div>
 
@@ -99,3 +119,4 @@ const QueryForm = () => {
 };
 
 export default QueryForm;
+

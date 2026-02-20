@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link to="/about" className="hover:text-yellow-400 transition">
             About
           </Link>
-
+          
           {/* SERVICES DROPDOWN */}
           <div
             className="relative"
@@ -41,14 +41,14 @@ const Navbar = () => {
               <div className="absolute top-8 left-0 bg-white text-gray-800 shadow-xl rounded-xl w-64 p-4 space-y-2 animate-fadeIn">
 
                 {[
-                  { name: "Life Insurance", link: "/services#life" },
-                  { name: "Mediclaim", link: "/services#mediclaim" },
-                  { name: "Personal Accident", link: "/services#accident" },
-                  { name: "Vehicle Insurance", link: "/services#vehicle" },
-                  { name: "Society / Fire", link: "/services#society" },
-                  { name: "Machinery Insurance", link: "/services#machinery" },
+                  { name: "Life Insurance claims", link: "/services#life" },
+                  { name: "Mediclaims", link: "/services#mediclaim" },
+                  { name: "Personal Accident claims", link: "/services#accident" },
+                  { name: "Vehicle Insurance claims", link: "/services#vehicle" },
+                  { name: "Fire claims", link: "/services#society" },
+                  { name: "Machinery Insurance claims", link: "/services#machinery" },
                   { name: "Banking Claims", link: "/services#banking" },
-                  { name: "Postal Schemes", link: "/services#postal" },
+                  { name: "Postal Schemes claims", link: "/services#postal" },
                 ].map((item, index) => (
                   <Link
                     key={index}
@@ -57,14 +57,15 @@ const Navbar = () => {
                   >
                     {item.name}
                   </Link>
+                  
                 ))}
 
               </div>
             )}
           </div>
-          <Link to="/blog" className="hover:text-yellow-400 transition">
+          {/* <Link to="/blog" className="hover:text-yellow-400 transition">
             Blog
-          </Link>
+          </Link> */}
 
           <Link to="/contact" className="hover:text-yellow-400 transition">
             Contact
@@ -110,14 +111,14 @@ const Navbar = () => {
               <div className="pl-4 mt-2 flex flex-col gap-2 text-base">
 
                 {[
-                  { name: "Life Insurance", link: "/services#life" },
-                  { name: "Mediclaim", link: "/services#mediclaim" },
-                  { name: "Personal Accident", link: "/services#accident" },
-                  { name: "Vehicle Insurance", link: "/services#vehicle" },
-                  { name: "Society / Fire", link: "/services#society" },
-                  { name: "Machinery Insurance", link: "/services#machinery" },
+                  { name: "Life Insurance claims", link: "/services#life" },
+                  { name: "Mediclaims", link: "/services#mediclaim" },
+                  { name: "Personal Accident claims", link: "/services#accident" },
+                  { name: "Vehicle Insurance claims", link: "/services#vehicle" },
+                  { name: "Fire claims", link: "/services#society" },
+                  { name: "Machinery Insurance claims", link: "/services#machinery" },
                   { name: "Banking Claims", link: "/services#banking" },
-                  { name: "Postal Schemes", link: "/services#postal" },
+                  { name: "Postal Schemes claims", link: "/services#postal" },
                 ].map((item, index) => (
                   <Link
                     key={index}

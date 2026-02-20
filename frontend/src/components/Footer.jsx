@@ -54,7 +54,7 @@ const Footer = () => {
           </h3>
 
           <p className="mb-2">📞 +91 98901 84552</p>
-          <p className="mb-2">✉ claim@branch03343@gmail.com</p>
+          <p className="mb-2">✉branch03343@gmail.com</p>
           <p className="text-sm">
             gaurisha co working 
             223 3rd floor above dr. Kharkhar Clinic Thakur arcade opp virar railway station Virar West
@@ -76,23 +76,16 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-300 mt-10 pt-6 text-center text-sm">
+     <div className="border-t border-gray-300 mt-10 pt-6 flex justify-between items-center flex-wrap text-sm">
 
-        <p>© 2026 ClaimConsultant. All rights reserved.</p>
-
-        <div className="mt-2 space-x-4">
-
-          <Link to="/privacy" className="hover:text-blue-700 transition">
-            Privacy Policy
-          </Link>
-
-          <Link to="/terms" className="hover:text-blue-700 transition">
-            Terms & Conditions
-          </Link>
-
-        </div>
-
-      </div>
+        <p>
+        © 2026 ClaimConsultant. All rights reserved.
+        </p>
+        <p>
+        Designed & Developed by Localvocalize
+        </p>
+        
+     </div>
 
     </footer>
   );

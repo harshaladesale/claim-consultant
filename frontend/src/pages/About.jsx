@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import SEO from "../components/SEO";
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -15,7 +15,10 @@ const stagger = {
 const About = () => {
   return (
     <div className="bg-gray-50 text-gray-800 overflow-hidden">
-
+       <SEO
+              title="About page"
+              description="Professional insurance claim consultancy services. Fast processing and expert guidance."
+            />
       {/* HERO SECTION */}
       <section className="relative bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 text-white py-28 text-center overflow-hidden">
 
@@ -33,7 +36,7 @@ const About = () => {
           </h1>
 
           <p className="max-w-2xl mx-auto text-lg text-gray-200">
-            Delivering professional, transparent and stress-free insurance claim assistance.
+            Delivering professional, transparent and stress-free claim assistance.
           </p>
         </motion.div>
       </section>
@@ -47,7 +50,7 @@ const About = () => {
     whileInView={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
-    src="https://img.freepik.com/free-vector/business-team-discussing-ideas-startup_74855-4380.jpg"
+    src="/images/about.png"
     className="rounded-3xl shadow-2xl hover:scale-105 transition duration-500"
   />
 
@@ -119,7 +122,7 @@ const About = () => {
           {[
             {
               title: "Our Mission",
-              desc: "To simplify the insurance claim process and provide reliable guidance that ensures fair and timely claim settlements."
+              desc: "To simplify the claim process and provide reliable guidance that ensures fair and timely claim settlements."
             },
             {
               title: "Our Vision",
@@ -236,8 +239,8 @@ const About = () => {
                 className="text-center bg-gray-100 p-10 rounded-3xl shadow-lg"
               >
                 <img
-                  src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg"
-                  className="w-28 mx-auto mb-6"
+                  src="/images/about1.jpg"
+                  className="w-38 mx-auto mb-6"
                 />
 
                 <h3 className="font-bold text-lg">{role}</h3>

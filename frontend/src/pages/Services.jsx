@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
+import SEO from "../components/SEO"
 /* ---------------- SERVICES DATA ---------------- */
-
 const servicesData = [
   {
     id: "life",
     title: "Life Insurance Claim",
     image:
-      "https://img.freepik.com/free-vector/life-insurance-concept-illustration_114360-2642.jpg",
+      "/images/Life-Insurance.jpg",
     steps: [
       "Claim Intimation – The nominee or beneficiary informs the insurance company about the policyholder’s demise through an online portal, toll-free helpline, branch visit, or email.",
       "Document Submission – After claim registration, the nominee submits the required documents such as the death certificate, policy document, claim forms, KYC details, bank information, and any additional documents if required.",
@@ -22,7 +22,7 @@ const servicesData = [
     id: "mediclaim",
     title: "Mediclaim Claim",
     image:
-      "https://img.freepik.com/free-vector/health-insurance-concept_23-2148539493.jpg",
+      "/images/medicle.jpg",
     steps: [
       "Inform Insurer / TPA – Notify the insurance company or TPA (Third Party Administrator) as soon as hospitalization is planned or occurs. ",
       "Choose Cashless or Reimbursement - •	Cashless Claim: Treatment at a network hospital where bills are settled directly by the insurer.•	Reimbursement Claim: Treatment at a non-network hospital where expenses are paid by the insured first and later claimed.",
@@ -37,7 +37,7 @@ const servicesData = [
     id: "accident",
     title: "Personal Accident Claim",
     image:
-      "https://img.freepik.com/free-vector/ambulance-concept-illustration_114360-8917.jpg",
+      "/images/accident.jpg",
     steps: [
       "Immediate Intimation - Inform the insurance company as soon as the accident occurs. Intimation can be done through the insurer’s helpline, online portal, email, or nearest branch.",
       "Medical Treatment & Documentation - Seek immediate medical attention and retain all medical records, bills, prescriptions, and reports related to the injury",
@@ -53,7 +53,7 @@ const servicesData = [
     id: "vehicle",
     title: "Vehicle Insurance Claim",
     image:
-      "https://img.freepik.com/free-vector/car-insurance-concept_23-2148804341.jpg",
+      "/images/vehicle.jpg",
     steps: [
       "Immediate Intimation - Inform the insurance company immediately after the accident, theft, or damage. Intimation can be done via the insurer’s helpline, mobile app, website, or nearest branch",
       "FIR if Required - Lodge an FIR at the nearest police station in cases of theft, third-party injury/death, fire, or major accidents, as required by law.",
@@ -69,7 +69,7 @@ const servicesData = [
     id: "society",
     title: "Society / Fire Insurance",
     image:
-      "https://img.freepik.com/free-vector/firefighters-extinguishing-burning-building_23-2148475125.jpg",
+      "/images/fire.jpg",
     steps: [
       "Immediate Intimation - Inform the insurance company as soon as the loss or damage occurs (fire, water leakage, storm, lift damage, etc.). Intimation can be done via helpline, email, online portal, or through the society’s insurance advisor.",
       "Incident Reporting - Prepare an incident report detailing the date, time, cause, and extent of damage.•	Fire/Theft: Fire Brigade Report or Police FIR may be required.•	Natural Calamities: Local authority or weather-related documentation, if applicable.",
@@ -85,7 +85,7 @@ const servicesData = [
     id: "machinery",
     title: "Machinery Insurance Claim",
     image:
-      "https://img.freepik.com/free-vector/factory-production-concept_23-2148824918.jpg",
+      "/images/machinery.jpg",
     steps: [
       "Immediate Intimation - Inform the insurance company immediately after the machinery breakdown or damage occurs. Intimation can be done through the insurer’s helpline, email, online portal, or via your insurance advisor.",
       "Stop Operations & Prevent Damage - Shut down the affected machinery and take all reasonable steps to prevent further loss or damage. Do not dismantle or repair the machinery without the insurer’s consent, except for temporary measures to reduce damage.",
@@ -101,9 +101,10 @@ const servicesData = [
     id: "banking",
     title: "Banking Claims",
     image:
-      "https://img.freepik.com/free-vector/online-banking-concept_23-2148533389.jpg",
+      "/images/banking.jpg",
     steps: [
-      "Report Unauthorized Transactions",
+      "Banking claim - Banking claims are handled differently depending on whether you are reporting an unauthorised transaction, claiming funds from a deceased person's account, or recovering unclaimed deposits. ",
+      "Reporting Unauthorised Transactions (Fraud)-If you notice a transaction you did not authorise, you must act immediately to minimize your liability. ",
       "Deceased Account Settlement",
       "Locker Claim Process",
       "Reclaim Unclaimed Deposits",
@@ -114,7 +115,7 @@ const servicesData = [
     id: "postal",
     title: "Postal Scheme Claims",
     image:
-      "https://img.freepik.com/free-vector/post-office-concept-illustration_114360-7335.jpg",
+      "/images/postal.png",
     steps: [
       "Inform Post Office - The nominee or beneficiary must inform the concerned Post Office immediately about the death or maturity of the policy/scheme. Intimation can be done by visiting the branch where the account or policy is held.",
       "Fill Claim Forms - Collect the prescribed claim forms from the Post Office and fill them accurately. Forms vary depending on the scheme (PLI, RPLI, MIS, NSC, KVP, Savings Account, etc.).",
@@ -131,74 +132,128 @@ const servicesData = [
 const Services = () => {
   const location = useLocation();
 
-  /* ⭐ Scroll to Section When URL has #id */
   useEffect(() => {
     if (location.hash) {
-      const element = document.querySelector(location.hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
   }, [location]);
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-linear-to-b from-slate-50 to-blue-50 min-h-screen">
+      <SEO
+        title="services page"
+        description="Professional insurance claim consultancy services. Fast processing and expert guidance."
+      />
+    
+<section className="relative overflow-hidden bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 text-white py-28 text-center">
 
-      {/* HERO */}
-      <section className="bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 text-white text-center py-20">
-        <h1 className="text-5xl font-bold mb-4">Our Claim Services</h1>
-        <p className="max-w-2xl mx-auto text-lg">
-          We assist you in smooth and transparent claim settlement across
-          multiple insurance domains.
-        </p>
-      </section>
+  {/* Animated circles */}
+  <div className="absolute w-96 h-96 bg-white/10 rounded-full blur-3xl top-0 left-0 animate-pulse"></div>
+  <div className="absolute w-96 h-96 bg-cyan-300/10 rounded-full blur-3xl bottom-0 right-0 animate-pulse"></div>
 
-      {/* SERVICES */}
+  <motion.h1
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="text-5xl md:text-6xl font-bold mb-6"
+  >
+    Our Claim Services
+  </motion.h1>
+
+  <p className="max-w-xl mx-auto text-lg text-gray-200 mb-8">
+    We provide professional guidance to ensure fast, transparent,
+    and hassle-free insurance claim settlements.
+  </p>
+
+
+  
+
+</section>
+
+
+      {/* ---------------- SERVICES SECTIONS ---------------- */}
+
       {servicesData.map((service, index) => (
-        <section
-          key={service.id}
-          id={service.id}
-          className="py-20 px-8 md:px-20"
-        >
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <section key={service.id} id={service.id} className="py-24 px-6 md:px-16">
 
-            {/* IMAGE */}
+          <div
+            className={`flex flex-col md:flex-row gap-16 items-center ${
+              index % 2 !== 0 ? "md:flex-row-reverse" : ""
+            }`}
+          >
+
+            {/* ---------------- IMAGE ---------------- */}
+
             <motion.img
-              initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              src={service.image}
-              className="rounded-3xl shadow-xl"
+            initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            src={service.image}
+            className="w-full md:w-[45%] h-100 md:h-125 rounded-3xl shadow-2xl object-cover hover:scale-105 transition duration-500"
             />
 
-            {/* CONTENT */}
+
+            {/* ---------------- CONTENT ---------------- */}
+
             <motion.div
-              initial={{ opacity: 0, x: index % 2 === 0 ? 80 : -80 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
+              className="w-full md:w-[55%]"
             >
-              <h2 className="text-3xl font-bold text-blue-900 mb-6">
+
+              <h2 className="text-4xl font-bold text-blue-900 mb-10">
                 {service.title}
               </h2>
 
-              <ul className="space-y-3">
+              {/* Step Cards */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+
                 {service.steps.map((step, i) => (
-                  <li
+                  <motion.div
                     key={i}
-                    className="bg-white shadow-md p-4 rounded-xl hover:shadow-lg transition"
+                    whileHover={{ scale: 1.05 }}
+                    className="relative bg-white/70 backdrop-blur-md border border-white shadow-xl p-6 rounded-2xl transition"
                   >
-                    <span className="font-semibold text-blue-700">
-                      Step {i + 1}:
-                    </span>{" "}
-                    {step}
-                  </li>
+
+                    {/* Step Number */}
+                    <div className="absolute -top-5 -left-5 w-12 h-12 rounded-full bg-linear-to-r from-blue-800 to-cyan-500 text-white flex items-center justify-center font-bold shadow-lg">
+                      {i + 1}
+                    </div>
+
+                    <p className="text-gray-700 text-[15px] leading-relaxed">
+                      {step}
+                    </p>
+
+                  </motion.div>
                 ))}
-              </ul>
+
+              </div>
 
             </motion.div>
+
           </div>
         </section>
       ))}
+
+      {/* ---------------- CTA SECTION ---------------- */}
+
+      <section className="bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 text-white text-center py-20">
+
+        <h2 className="text-4xl font-bold mb-4">
+          Need Help With Your Claim?
+        </h2>
+
+        <p className="mb-8 text-gray-200">
+          Our experts are ready to assist you with documentation and settlement.
+        </p>
+
+        <button className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">
+          Contact Our Experts
+        </button>
+
+      </section>
+
     </div>
   );
 };

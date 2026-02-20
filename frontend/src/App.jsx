@@ -1,55 +1,69 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { HelmetProvider } from "react-helmet-async";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SocialIcons from "./components/Icons";
+import TermsPopup from "./components/TermsPopup";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import QueryForm from "./pages/QueryForm";
-import Blog from "./pages/Blog";
 
 import Dashboard from "./pages/Dashboard";
 import AdminContact from "./admin/Contact";
 import AdminQuery from "./admin/Query";
 
-function App() {
+function AppContent() {
+  const [accepted, setAccepted] = useState(false);
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
-    <BrowserRouter>
+    <>
+      {!accepted && !isAdminRoute && (
+        <TermsPopup onAccept={() => setAccepted(true)} />
+      )}
 
-      <Routes>
-
-        {/* ===== Public Website Layout ===== */}
-        <Route
-          path="/*"
-          element={
+      {(accepted || isAdminRoute) && (
+        <>
+          {!isAdminRoute && (
             <>
               <Navbar />
-
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/query" element={<QueryForm />} />
-                <Route path="/blog" element={<Blog />} />
-              </Routes>
-
-              <Footer />
+              <SocialIcons />
             </>
-          }
-        />
+          )}
 
-        {/* ===== Admin Dashboard Layout ===== */}
-        <Route path="/admin" element={<Dashboard />}>
-          <Route path="contact" element={<AdminContact />} />
-          <Route path="query" element={<AdminQuery />} />
-        </Route>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/query" element={<QueryForm />} />
 
-      </Routes>
+            {/* Admin Routes */}
+            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin/contact" element={<AdminContact />} />
+            <Route path="/admin/query" element={<AdminQuery />} />
+          </Routes>
 
-    </BrowserRouter>
+          {!isAdminRoute && <Footer />}
+        </>
+      )}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <HelmetProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

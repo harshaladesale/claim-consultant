@@ -56,6 +56,7 @@ const AdminAllQuery = () => {
             <tr>
               <th className="px-6 py-4 text-left font-semibold">Name</th>
               <th className="px-6 py-4 text-left font-semibold">Email</th>
+              <th className="px-6 py-4 text-left font-semibold">Mobile No</th>
               <th className="px-6 py-4 text-left font-semibold">Claim Type</th>
               <th className="px-6 py-4 text-left font-semibold">Message</th>
               <th className="px-6 py-4 text-left font-semibold">Created</th>
@@ -87,6 +88,10 @@ const AdminAllQuery = () => {
 
                   <td className="px-6 py-4 text-indigo-600">
                     {user.email}
+                  </td>
+
+                  <td className="px-6 py-4 text-indigo-600">
+                    {user.phone}
                   </td>
 
                   <td className="px-6 py-4 text-purple-600">
