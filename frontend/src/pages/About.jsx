@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import SEO from "../components/SEO";
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -15,10 +14,7 @@ const stagger = {
 const About = () => {
   return (
     <div className="bg-gray-50 text-gray-800 overflow-hidden">
-       <SEO
-              title="About page"
-              description="Professional insurance claim consultancy services. Fast processing and expert guidance."
-            />
+      
       {/* HERO SECTION */}
       <section className="relative bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 text-white py-28 text-center overflow-hidden">
 

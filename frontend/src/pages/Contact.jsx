@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import SEO from "../components/SEO";
 import {
   FaUser,
   FaEnvelope,
@@ -25,10 +24,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-900 via-teal-700 to-cyan-500 p-4 sm:p-6 relative overflow-hidden">
-      <SEO
-        title="Contact page"
-        description="Professional insurance claim consultancy services. Fast processing and expert guidance."
-      />
+      
       {/* Animated blobs */}
       <div className="absolute w-72 h-72 sm:w-96 sm:h-96 bg-pink-400/40 rounded-full blur-3xl animate-pulse top-10 left-0"></div>
       <div className="absolute w-72 h-72 sm:w-96 sm:h-96 bg-cyan-300/40 rounded-full blur-3xl animate-pulse bottom-10 right-0"></div>

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import SEO from "../components/SEO";
 
 const Home = () => {
 
@@ -28,10 +27,7 @@ const Home = () => {
 
   return (
     <div className="bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 text-white">
-      <SEO
-        title="Expert Claim Consultant | Fast & Trusted Support"
-        description="Professional insurance claim consultancy services. Fast processing and expert guidance."
-      />
+      
 
       {/* HERO SECTION */}
       <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-20 py-20">

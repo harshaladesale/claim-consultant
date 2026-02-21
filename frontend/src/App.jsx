@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import { HelmetProvider } from "react-helmet-async";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -17,25 +16,20 @@ import Dashboard from "./pages/Dashboard";
 import AdminContact from "./admin/Contact";
 import AdminQuery from "./admin/Query";
 
-function AppContent() {
+function App() {
   const [accepted, setAccepted] = useState(false);
-  const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith("/admin");
 
   return (
     <>
-      {!accepted && !isAdminRoute && (
+      {!accepted && (
         <TermsPopup onAccept={() => setAccepted(true)} />
       )}
 
-      {(accepted || isAdminRoute) && (
-        <>
-          {!isAdminRoute && (
-            <>
-              <Navbar />
-              <SocialIcons />
-            </>
-          )}
+      {accepted && (
+        <BrowserRouter>
+
+          <Navbar />
+          <SocialIcons />
 
           <Routes>
             <Route path="/" element={<Home />} />
@@ -44,26 +38,17 @@ function AppContent() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/query" element={<QueryForm />} />
 
-            {/* Admin Routes */}
+            {/* Admin */}
             <Route path="/admin" element={<Dashboard />} />
             <Route path="/admin/contact" element={<AdminContact />} />
             <Route path="/admin/query" element={<AdminQuery />} />
           </Routes>
 
-          {!isAdminRoute && <Footer />}
-        </>
+          <Footer />
+
+        </BrowserRouter>
       )}
     </>
-  );
-}
-
-function App() {
-  return (
-    <HelmetProvider>
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
-    </HelmetProvider>
   );
 }
 

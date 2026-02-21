@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { FaUser, FaEnvelope, FaFileAlt, FaCommentDots } from "react-icons/fa";
-import SEO from "../components/SEO";
 
 const QueryForm = () => {
 
@@ -21,10 +20,7 @@ const QueryForm = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 flex items-center justify-center p-6">
-      <SEO
-        title="QueryForm"
-        description="Professional insurance claim consultancy services. Fast processing and expert guidance."
-      />
+      
       <div className="w-full max-w-lg bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl p-10">
 
         {/* Heading */}

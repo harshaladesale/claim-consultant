@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import SEO from "../components/SEO"
 /* ---------------- SERVICES DATA ---------------- */
 const servicesData = [
   {
@@ -141,10 +140,7 @@ const Services = () => {
 
   return (
     <div className="bg-linear-to-b from-slate-50 to-blue-50 min-h-screen">
-      <SEO
-        title="services page"
-        description="Professional insurance claim consultancy services. Fast processing and expert guidance."
-      />
+      
     
 <section className="relative overflow-hidden bg-linear-to-r from-blue-900 via-teal-700 to-cyan-500 text-white py-28 text-center">
 
