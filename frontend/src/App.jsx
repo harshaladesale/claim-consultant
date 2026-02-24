@@ -4,7 +4,6 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SocialIcons from "./components/Icons";
-import TermsPopup from "./components/TermsPopup";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -19,36 +18,36 @@ import AdminQuery from "./admin/Query";
 function App() {
   const [accepted, setAccepted] = useState(false);
 
+  const receiveData = (data) => {
+    setAccepted(data);
+    console.log(data);
+  };
+
   return (
-    <>
-      {!accepted && (
-        <TermsPopup onAccept={() => setAccepted(true)} />
-      )}
+    <BrowserRouter>
+      <Navbar />
+      <SocialIcons />
 
-      {accepted && (
-        <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home accept={receiveData} />} />
 
-          <Navbar />
-          <SocialIcons />
-
-          <Routes>
-            <Route path="/" element={<Home />} />
+        {accepted && (
+          <>
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/query" element={<QueryForm />} />
+          </>
+        )}
 
-            {/* Admin */}
-            <Route path="/admin" element={<Dashboard />} />
-            <Route path="/admin/contact" element={<AdminContact />} />
-            <Route path="/admin/query" element={<AdminQuery />} />
-          </Routes>
+        {/* Admin */}
+        <Route path="/admin" element={<Dashboard />} />
+        <Route path="/admin/contact" element={<AdminContact />} />
+        <Route path="/admin/query" element={<AdminQuery />} />
+      </Routes>
 
-          <Footer />
-
-        </BrowserRouter>
-      )}
-    </>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

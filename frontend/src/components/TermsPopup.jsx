@@ -1,8 +1,7 @@
 const TermsPopup = ({ onAccept }) => {
   return (
-    <div className="fixed inset-0 bg-black/70 flex justify-center items-center z-50 p-4">
-      
-      <div className="bg-white max-w-2xl w-full p-6 rounded-xl shadow-lg max-h-[80vh] flex flex-col">
+<div className="fixed inset-0 bg-transparent flex justify-center items-center z-50 p-4">
+        <div className="bg-white max-w-2xl w-full p-6 rounded-xl shadow-lg max-h-[80vh] flex flex-col">
 
         {/* Title */}
         <h2 className="text-2xl font-bold mb-4 text-blue-900">
