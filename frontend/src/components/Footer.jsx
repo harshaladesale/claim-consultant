@@ -13,8 +13,7 @@ const Footer = () => {
           </h2>
 
           <p className="text-sm leading-6">
-            ClaimConsultant acts as a one-stop solution for Insurance Claim
-            assistance ensuring hassle-free claim settlement.
+            ClaimConsultant provides comprehensive, end-to-end claim assistance services, ensuring a smooth, transparent, and hassle-free claim settlement experience for clients.
           </p>
         </div>
 
@@ -56,8 +55,8 @@ const Footer = () => {
           <p className="mb-2">📞 +91 98901 84552</p>
           <p className="mb-2">✉branch03343@gmail.com</p>
           <p className="text-sm">
-            gaurisha co working 
-            223 3rd floor above dr. Kharkhar Clinic Thakur arcade opp virar railway station Virar West
+            Gaurisha claim consultant
+            223 3rd floor above Dr. Kharkhar Clinic Thakur arcade opp virar railway station Virar West
           </p>
         </div>
 
@@ -68,8 +67,7 @@ const Footer = () => {
           </h3>
 
           <p className="text-sm leading-6">
-            ClaimConsultant is not registered or regulated by IRDAI and does not
-            have direct tie-ups with insurance companies.
+            ClaimConsultant provides comprehensive, end-to-end claim assistance services, ensuring a smooth, transparent, and hassle-free claim settlement experience for clients.
           </p>
         </div>
 
@@ -81,9 +79,17 @@ const Footer = () => {
         <p>
         © 2026 ClaimConsultant. All rights reserved.
         </p>
-        <p>
-        Designed & Developed by Localvocalize
-        </p>
+        <p className="text-center text-sm">
+  Designed & Developed by{" "}
+  <a
+    href="https://localvocalizetechnology.tech/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 font-semibold hover:underline"
+  >
+    Localvocalize
+  </a>
+</p>
         
      </div>
 

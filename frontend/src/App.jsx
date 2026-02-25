@@ -11,7 +11,10 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import QueryForm from "./pages/QueryForm";
 
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+
 import AdminContact from "./admin/Contact";
 import AdminQuery from "./admin/Query";
 
@@ -20,7 +23,6 @@ function App() {
 
   const receiveData = (data) => {
     setAccepted(data);
-    console.log(data);
   };
 
   return (
@@ -29,19 +31,19 @@ function App() {
       <SocialIcons />
 
       <Routes>
+        {/* Public Pages */}
         <Route path="/" element={<Home accept={receiveData} />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/query" element={<QueryForm />} />
 
-        {accepted && (
-          <>
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/query" element={<QueryForm />} />
-          </>
-        )}
+        {/* Admin Auth Pages */}
+        <Route path="/admin" element={<Register />} />
+        <Route path="/admin/login" element={<Login />} />
 
-        {/* Admin */}
-        <Route path="/admin" element={<Dashboard />} />
+        {/* Admin Dashboard */}
+        <Route path="/admin/dashboard" element={<Dashboard />} />
         <Route path="/admin/contact" element={<AdminContact />} />
         <Route path="/admin/query" element={<AdminQuery />} />
       </Routes>
